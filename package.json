@@ -14,7 +14,8 @@
     "clean": "rimraf dist/",
     "copy-files": "copyfiles -u 1 src/**/*.css dist/",
     "build": "yarn clean && tsc -b && yarn copy-files",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -41,6 +42,7 @@
     "core-js": "^3.27.1",
     "eslint": "^8.36.0",
     "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
     "jest": "^27.0.0",
     "preact-cli": "^3.4.2",
     "prettier": "^2.8.2",
