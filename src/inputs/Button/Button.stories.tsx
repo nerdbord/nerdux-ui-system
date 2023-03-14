@@ -13,11 +13,7 @@ export default {
   },
 } as Meta;
 
-export const Button: Story = (args) => (
-  <MyButton {...args} onClick={() => {}}>
-    Click me!
-  </MyButton>
-);
+export const Button: Story = (args) => <MyButton {...args}>Click me!</MyButton>;
 
 Button.args = {
   disabled: false,
