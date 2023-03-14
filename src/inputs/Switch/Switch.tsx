@@ -6,7 +6,7 @@ import * as styles from "./Switch.module.css";
 interface SwitchProps {
   checked?: boolean;
   disabled?: boolean;
-  onChange(): void;
+    onChange(checked: boolean): void;
   id: string;
 }
 
