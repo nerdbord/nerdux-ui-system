@@ -1,9 +1,10 @@
 import * as React from "react";
 import { PropsWithChildren, useState } from "react";
-import classNames from "classnames";
+import classNames from "classnames/bind";
 
 import * as styles from "./Switch.module.css";
 
+const cx = classNames.bind(styles);
 
 interface SwitchProps {
   checked?: boolean;
@@ -13,23 +14,21 @@ interface SwitchProps {
 }
 
 export const Switch = ({
-                         disabled = false,
-                         id = "id",
-                         ...props
-                       }: PropsWithChildren<SwitchProps>) => {
+  disabled = false,
+  id = "id",
+  ...props
+}: PropsWithChildren<SwitchProps>) => {
   const [checked, setChecked] = useState(false);
 
-  const getIfDisabledLabel = (): string => {
-    return disabled ? styles.switchLabelDisabled : "";
-  };
+  const labelClassName = cx({
+    switchLabel: true,
+    switchLabelDisabled: disabled
+  });
 
-  const getIfDisabledSlider = (): string => {
-    return disabled ? styles.switchSliderDisabled : "";
-  };
-
-  const labelClassName = classNames(styles.switchLabel, getIfDisabledLabel())
-
-  const sliderClassName = classNames(styles.switchSlider, getIfDisabledSlider())
+  const sliderClassName = cx({
+    switchSlider: true,
+    switchSliderDisabled: disabled
+  });
 
   return (
     <label className={labelClassName}>
