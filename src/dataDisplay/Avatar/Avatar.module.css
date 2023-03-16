@@ -28,17 +28,17 @@
   margin: 0;
 }
 
-.avatarBig {
+.big {
   width: 40px;
   height: 40px;
 }
 
-.avatarMedium {
+.medium {
   width: 30px;
   height: 32px;
 }
 
-.avatarSmall {
+.small {
   width: 24px;
   height: 24px;
 }
