@@ -16,20 +16,15 @@ export const Avatar = ({
   size = "big",
   ...props
 }: PropsWithChildren<AvatarProps>) => {
-
-  const avatarClassName = cx ({
+  const avatarClassName = cx({
     templateAvatar: true,
-    avatarSmall: size === "small",
-    avatarMedium: size === "medium",
-    avatarBig: size === "big"
-  })
+    [size]: true,
+  });
 
-  const defaultAvatarClassName = cx ({
+  const defaultAvatarClassName = cx({
     templateDefault: true,
-    avatarSmall: size === "small",
-    avatarMedium: size === "medium",
-    avatarBig: size === "big"
-  })
+    [size]: true,
+  });
 
   return (
     <div className={styles.avatarWrapper}>
