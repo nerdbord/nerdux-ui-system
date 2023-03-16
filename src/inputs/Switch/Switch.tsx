@@ -22,12 +22,12 @@ export const Switch = ({
 
   const labelClassName = cx({
     switchLabel: true,
-    switchLabelDisabled: disabled
+    switchLabelDisabled: disabled,
   });
 
   const sliderClassName = cx({
     switchSlider: true,
-    switchSliderDisabled: disabled
+    switchSliderDisabled: disabled,
   });
 
   return (
