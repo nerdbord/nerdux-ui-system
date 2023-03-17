@@ -75,11 +75,11 @@ export const TextField = (props: TextFieldProps) => {
           value={props.value}
           type={props.type}
           onFocus={(event) => {
-            setFocus(!focused);
+            setFocus(true);
             props.onFocus && props.onFocus(event);
           }}
           onBlur={(event) => {
-            setFocus(!focused);
+            setFocus(false);
             props.onBlur && props.onBlur(event);
           }}
           className={inputClassName}
