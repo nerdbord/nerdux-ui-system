@@ -14,9 +14,5 @@ export const Spinner = () => (
       stroke="currentColor"
       strokeWidth="2"
     />
-    {/* <animateTransform attributeName="transform"
-                type="rotate"
-                keyTimes="0;1" values="0;360"
-                dur="1.5s" repeatCount="indefinite"/> */}
   </svg>
 );
