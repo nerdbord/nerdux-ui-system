@@ -22,6 +22,7 @@ interface TextFieldProps {
   withIcon?: boolean;
   onFocus?(event: React.ChangeEvent<HTMLInputElement>): void;
   onBlur?(event: React.ChangeEvent<HTMLInputElement>): void;
+  onClear?(event: React.MouseEvent<HTMLInputElement>): void;
 }
 
 export const TextField = (props: TextFieldProps) => {
@@ -91,8 +92,16 @@ export const TextField = (props: TextFieldProps) => {
         {props.error && !props.disabled && (
           <span className={iconRightClasses}>{<Error />}</span>
         )}
-        {focused && !props.disabled && !props.error && (
-          <span className={iconRightClasses}>{<Cancel />}</span>
+        {focused && !props.disabled && !props.error && props.onClear && (
+          <span
+            className={iconRightClasses}
+            onClick={(event) => {
+              event.stopPropagation();
+              props.onClear();
+            }}
+          >
+            {<Cancel />}
+          </span>
         )}
       </div>
       {props.error && !props.disabled && (
