@@ -22,7 +22,7 @@ interface TextFieldProps {
   withIcon?: boolean;
   onFocus?(event: React.ChangeEvent<HTMLInputElement>): void;
   onBlur?(event: React.ChangeEvent<HTMLInputElement>): void;
-  onClear?(event: React.MouseEvent<HTMLInputElement>): void;
+  onClear?(): void;
 }
 
 export const TextField = (props: TextFieldProps) => {
@@ -57,6 +57,25 @@ export const TextField = (props: TextFieldProps) => {
     rightIcon: true,
   });
 
+  const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFocus(true);
+    props.onFocus && props.onFocus(event);
+  }
+  const handleBlur =  (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFocus(false);
+    props.onBlur && props.onBlur(event);
+  }
+
+  const handleClear =  (event: React.MouseEvent) => {
+    event.stopPropagation();
+    props.onClear && props.onClear();
+  }
+
+  const handleChange =  (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (props.disabled) return;
+    props.onChange(event);
+  }
+
   return (
     <div className={inputClassName}>
       {props.label && (
@@ -75,30 +94,18 @@ export const TextField = (props: TextFieldProps) => {
           disabled={props.disabled}
           value={props.value}
           type={props.type}
-          onFocus={(event) => {
-            setFocus(true);
-            props.onFocus && props.onFocus(event);
-          }}
-          onBlur={(event) => {
-            setFocus(false);
-            props.onBlur && props.onBlur(event);
-          }}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           className={inputClassName}
-          onChange={() => {
-            if (props.disabled) return;
-            props.onChange();
-          }}
+          onChange={handleChange}
         />
         {props.error && !props.disabled && (
           <span className={iconRightClasses}>{<Error />}</span>
         )}
-        {focused && !props.disabled && !props.error && props.onClear && (
+        {!!props.value && !props.disabled && !props.error && props.onClear && (
           <span
             className={iconRightClasses}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.onClear();
-            }}
+            onClick={handleClear}
           >
             {<Cancel />}
           </span>
