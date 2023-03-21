@@ -14,7 +14,7 @@ export default {
 } as Meta;
 
 export const MultiTextField: Story = (args) => (
-  <TextField  {...args}></TextField>
+  <TextField {...args}></TextField>
 );
 
 MultiTextField.args = {

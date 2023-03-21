@@ -60,21 +60,21 @@ export const TextField = (props: TextFieldProps) => {
   const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFocus(true);
     props.onFocus && props.onFocus(event);
-  }
-  const handleBlur =  (event: React.ChangeEvent<HTMLInputElement>) => {
+  };
+  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFocus(false);
     props.onBlur && props.onBlur(event);
-  }
+  };
 
-  const handleClear =  (event: React.MouseEvent) => {
+  const handleClear = (event: React.MouseEvent) => {
     event.stopPropagation();
     props.onClear && props.onClear();
-  }
+  };
 
-  const handleChange =  (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (props.disabled) return;
     props.onChange(event);
-  }
+  };
 
   return (
     <div className={inputClassName}>
@@ -103,10 +103,7 @@ export const TextField = (props: TextFieldProps) => {
           <span className={iconRightClasses}>{<Error />}</span>
         )}
         {!!props.value && !props.disabled && !props.error && props.onClear && (
-          <span
-            className={iconRightClasses}
-            onClick={handleClear}
-          >
+          <span className={iconRightClasses} onClick={handleClear}>
             {<Cancel />}
           </span>
         )}
