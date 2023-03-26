@@ -3,7 +3,7 @@ import * as React from "react";
 
 import * as styles from "./Button.module.css";
 
-interface ButtonProps {
+export interface ButtonProps {
   onClick(): void;
   disabled?: boolean;
   variant?: "primary" | "secondary";

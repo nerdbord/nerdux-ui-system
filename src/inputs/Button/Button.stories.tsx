@@ -1,7 +1,7 @@
 // Button.stories.tsx
 import { Meta, Story } from "@storybook/react";
 import * as React from "react";
-import { Button as MyButton } from "./Button";
+import { Button as MyButton, ButtonProps } from "./Button";
 
 export default {
   component: MyButton,
@@ -13,7 +13,9 @@ export default {
   },
 } as Meta;
 
-export const Button: Story = (args) => <MyButton {...args}>Click me!</MyButton>;
+export const Button: Story = (args) => (
+  <MyButton {...(args as ButtonProps)}>Click me!</MyButton>
+);
 
 Button.args = {
   disabled: false,

@@ -6,7 +6,7 @@ import * as styles from "./Switch.module.css";
 
 const cx = classNames.bind(styles);
 
-interface SwitchProps {
+export interface SwitchProps {
   checked?: boolean;
   disabled?: boolean;
   onChange(checked: boolean): void;
@@ -39,7 +39,7 @@ export const Switch = ({
         onChange={() => {
           if (disabled) return;
           setChecked(!checked);
-          props.onChange();
+          props.onChange(!checked);
         }}
         id={id}
       />
