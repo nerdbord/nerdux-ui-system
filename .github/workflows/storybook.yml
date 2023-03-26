@@ -1,0 +1,29 @@
+name: Deploy Storybook to Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: team_4G8oJutof4HpG6F6kHuqoZZ7
+          vercel-project-id: prj_PUzo5Ur6BoyZhzw9l5KwwbzzPvyG
+          vercel-args: "--prod --force"
+          build-dir: "storybook-static"

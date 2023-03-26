@@ -4,5 +4,14 @@
   "devCommand": "npm run storybook",
   "installCommand": "npm install",
   "framework": null,
-  "outputDirectory": "./storybook-static"
+  "outputDirectory": "./storybook-static",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "skipAutoDeploy": true
+      }
+    }
+  ]
 }

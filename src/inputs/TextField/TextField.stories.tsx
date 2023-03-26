@@ -1,7 +1,7 @@
 // TextField.stories.tsx
 import { Meta, Story } from "@storybook/react";
 import * as React from "react";
-import {TextField, TextFieldProps} from "./TextField";
+import { TextField, TextFieldProps } from "./TextField";
 
 export default {
   component: TextField,
@@ -14,7 +14,7 @@ export default {
 } as Meta;
 
 export const MultiTextField: Story = (args) => (
-  <TextField {...args as TextFieldProps}></TextField>
+  <TextField {...(args as TextFieldProps)}></TextField>
 );
 
 MultiTextField.args = {
