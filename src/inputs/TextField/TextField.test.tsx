@@ -2,14 +2,17 @@ import * as React from "react";
 import { render, fireEvent, act } from "@testing-library/react";
 import { TextField } from "./TextField";
 
+const baseInputProps = {
+  id: "input-1",
+  value: "",
+  name: "",
+};
 test("onChange handler should be called when typing onto it", () => {
   const handleChange = jest.fn();
   const event = { target: { value: "sometext" } };
 
   const { getByRole } = render(
-    <TextField focused onChange={handleChange}>
-      Some Label
-    </TextField>
+    <TextField {...baseInputProps} onChange={handleChange} />
   );
 
   const textfieldElement = getByRole("textbox");
@@ -24,9 +27,7 @@ test("onChange handler should not be called when TextField is disabled", () => {
   const event = { target: { value: "sometext" } };
 
   const { getByRole } = render(
-    <TextField disabled onChange={handleChange}>
-      Some Label
-    </TextField>
+    <TextField {...baseInputProps} disabled onChange={handleChange} />
   );
 
   const textfieldElement = getByRole("textbox");
@@ -37,7 +38,11 @@ test("onChange handler should not be called when TextField is disabled", () => {
 });
 
 test("should have specific (depends on how you name it) className active when TextField is focused", () => {
-  const { getByRole } = render(<TextField>Some Label</TextField>);
+  const handleChange = jest.fn();
+
+  const { getByRole } = render(
+    <TextField {...baseInputProps} onChange={handleChange} />
+  );
 
   const textfieldElement = getByRole("textbox");
 

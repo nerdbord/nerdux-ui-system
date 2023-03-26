@@ -7,7 +7,7 @@ import * as styles from "./TextField.module.css";
 
 const cx = classNames.bind(styles);
 
-interface TextFieldProps {
+export interface TextFieldProps {
   type?: "text" | "password";
   autoFocus?: boolean;
   disabled?: boolean;

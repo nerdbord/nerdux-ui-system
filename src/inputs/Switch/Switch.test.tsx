@@ -5,8 +5,10 @@ import { Switch } from "./Switch";
 test("onChange handler should be called when clicking on it, when one is not disabled. Expected isChecked should be true. After clicking on it again, expected isChecked value should be false", () => {
   const handleChange = jest.fn();
 
-  const { getByRole } = render(<Switch onChange={handleChange}></Switch>);
-  const switchElement = getByRole("checkbox");
+  const { getByRole } = render(
+    <Switch id={"switch-1"} onChange={handleChange}></Switch>
+  );
+  const switchElement = getByRole("checkbox") as HTMLInputElement;
 
   fireEvent.click(switchElement);
   expect(switchElement.checked).toEqual(true);
@@ -23,11 +25,11 @@ test("onChange handler should not be called when Switch is disabled", () => {
   const handleChange = jest.fn();
 
   const { getByRole } = render(
-    <Switch disabled onChange={handleChange}></Switch>
+    <Switch id={"switch-1"} disabled onChange={handleChange}></Switch>
   );
   const switchElement = getByRole("checkbox");
 
-  expect(switchElement.disabled).toBe(true);
+  expect(switchElement).toBe(true);
 
   fireEvent.click(switchElement);
 
