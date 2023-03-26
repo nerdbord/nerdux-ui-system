@@ -1,7 +1,7 @@
 node_modules
 /build
 /coverage
-
+/dist
 /*.log
 .idea
 .vsc
