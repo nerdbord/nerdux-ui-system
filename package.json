@@ -18,9 +18,6 @@
     "prepare": "husky install",
     "pretty": "prettier --write ."
   },
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "publishConfig": {},
   "devDependencies": {
     "@babel/core": "^7.20.12",
