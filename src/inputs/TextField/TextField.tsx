@@ -3,7 +3,7 @@ import * as React from "react";
 import { Error, Cancel, MagGlass } from "../../icons";
 import classNames from "classnames/bind";
 
-import * as styles from "./TextField.module.css";
+import styles from "./TextField.module.css";
 
 const cx = classNames.bind(styles);
 
