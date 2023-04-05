@@ -1,44 +1,41 @@
-import { PropsWithChildren } from "react";
-import * as React from "react";
+import React from 'react'
+import styles from './Button.module.css'
+import { Spinner } from '../../icons'
 
-import styles from "./Button.module.css";
-
-export interface ButtonProps {
-  onClick(): void;
-  disabled?: boolean;
-  variant?: "primary" | "secondary";
-  isLoading?: boolean;
+interface ButtonProps {
+	type?: 'button' | 'submit'
+	disabled?: boolean
+	isLoading: boolean
+	onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+	variant: 'primary' | 'secondary'
+	children: React.ReactNode
 }
 
-export const Button = ({
-  disabled = false,
-  variant = "primary",
-  ...props
-}: PropsWithChildren<ButtonProps>) => {
-  const variantClass =
-    variant === "primary" ? styles.primary : styles.secondary;
+const Button: React.FC<ButtonProps> = ({
+	type = 'button',
+	disabled = false,
+	isLoading = false,
+	variant = 'primary',
+	children,
+}) => {
+	const globalButtonClass = styles.buttons
+	const variantClass = variant === 'primary' ? styles.primary : styles.secondary
+	const disabledClass = disabled ? (variant === 'primary' ? styles.disabledPrimary : styles.disabledSecondary) : ''
+	const loadingClass = isLoading ? (variant === 'primary' ? styles.loadingPrimary : styles.loadingSecondary) : ''
 
-  const getDisabledClassForSpecificVariant = (): string | void => {
-    if (disabled) {
-      return variant === "primary"
-        ? styles.disabledPrimary
-        : styles.disabledSecondary;
-    }
-  };
+	const allClasses = [globalButtonClass, variantClass, disabledClass, loadingClass].join(' ')
+	return (
+		<button className={allClasses} type={type} disabled={disabled}>
+			<div className={styles.button__container}>
+				{isLoading && (
+					<span className={`${styles.iconSpinner} ${!disabled && styles.iconSpinnerRotate}`}>
+						<Spinner data-testid='spinner' />
+					</span>
+				)}
+				{children}
+			</div>
+		</button>
+	)
+}
 
-  const dynamicClasses = [
-    styles.template,
-    variantClass,
-    getDisabledClassForSpecificVariant(),
-  ].join(" ");
-
-  return (
-    <button
-      className={dynamicClasses}
-      onClick={props.onClick}
-      disabled={disabled}
-    >
-      {props.children}
-    </button>
-  );
-};
+export default Button
