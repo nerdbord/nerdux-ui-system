@@ -5,9 +5,9 @@ import { Spinner } from '../../icons'
 interface ButtonProps {
 	type?: 'button' | 'submit'
 	disabled?: boolean
-	isLoading: boolean
+	isLoading?: boolean
 	onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
-	variant: 'primary' | 'secondary'
+	variant?: 'primary' | 'secondary'
 	children: React.ReactNode
 }
 
@@ -17,7 +17,14 @@ const Button: React.FC<ButtonProps> = ({
 	isLoading = false,
 	variant = 'primary',
 	children,
+	onClick,
 }) => {
+	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+		if (!disabled && !isLoading) {
+			onClick(event)
+		}
+	}
+
 	const globalButtonClass = styles.buttons
 	const variantClass = variant === 'primary' ? styles.primary : styles.secondary
 	const disabledClass = disabled ? (variant === 'primary' ? styles.disabledPrimary : styles.disabledSecondary) : ''
@@ -25,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
 
 	const allClasses = [globalButtonClass, variantClass, disabledClass, loadingClass].join(' ')
 	return (
-		<button className={allClasses} type={type} disabled={disabled}>
+		<button className={allClasses} type={type} disabled={disabled} onClick={handleClick}>
 			<div className={styles.button__container}>
 				{isLoading && (
 					<span className={`${styles.iconSpinner} ${!disabled && styles.iconSpinnerRotate}`}>

@@ -32,4 +32,5 @@ export const Icon: Story = args => (
 Icon.args = {
 	variant: 'primary',
 	disabled: false,
+	isLoading: false,
 }
