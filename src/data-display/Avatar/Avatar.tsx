@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 import * as React from "react";
 import classNames from "classnames/bind";
 
-import * as styles from "./Avatar.module.css";
+import styles from "./Avatar.module.css";
 
 const cx = classNames.bind(styles);
 

@@ -2,7 +2,7 @@ import * as React from "react";
 import { PropsWithChildren, useState } from "react";
 import classNames from "classnames/bind";
 
-import * as styles from "./Switch.module.css";
+import styles from "./Switch.module.css";
 
 const cx = classNames.bind(styles);
 

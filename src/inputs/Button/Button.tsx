@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import * as React from "react";
 
-import * as styles from "./Button.module.css";
+import styles from "./Button.module.css";
 
 export interface ButtonProps {
   onClick(): void;

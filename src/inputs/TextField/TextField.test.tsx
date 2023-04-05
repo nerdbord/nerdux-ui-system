@@ -48,6 +48,7 @@ test("should have specific (depends on how you name it) className active when Te
 
   act(() => {
     textfieldElement.focus();
-    expect(textfieldElement).toHaveFocus();
   });
+
+  expect(textfieldElement.classList.contains("focusedWrapper")).toBe(true);
 });
