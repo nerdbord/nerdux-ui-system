@@ -34,9 +34,14 @@ Default.args = {
 export const ListItemSwitch: Story<ListItemArgs> = (args) => (
   <>
     <List>
-      <ListItem className={styles.listItem}>
+      <ListItem>
         <div className={styles.switchContainer}>
-          <Switch label={""} id={""} />
+          <Switch
+            id={""}
+            onChange={() => {
+              console.log("Hello");
+            }}
+          />
         </div>
         <div>
           <h3 className={styles.header}>{args.header}</h3>
@@ -55,7 +60,7 @@ ListItemSwitch.args = {
 export const ListItemCheckbox: Story<ListItemArgs> = (args) => (
   <>
     <List>
-      <ListItem className={styles.listItem}>
+      <ListItem>
         <div>
           <h3 className={styles.header}>{args.header}</h3>
           <p className={styles.supportText}>{args.supportText}</p>
@@ -66,7 +71,7 @@ export const ListItemCheckbox: Story<ListItemArgs> = (args) => (
             name={""}
             value={""}
             label={"Checkboc label"}
-            checked={false}
+            checked={true}
             disabled={false}
           />
         </div>
