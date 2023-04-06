@@ -1,6 +1,9 @@
 import React from 'react'
 import styles from './Button.module.css'
 import { Spinner } from '../../icons'
+import { Plus } from '../../icons'
+import { Fragment } from 'react'
+import { calculateDefaultDimensions } from '../../icons/Plus'
 
 interface ButtonProps {
 	type?: 'button' | 'submit'
@@ -18,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
 	children,
 }) => {
+	console.log(calculateDefaultDimensions(16, 50));
 	const globalButtonClass = styles.buttons
 	const variantClass = variant === 'primary' ? styles.primary : styles.secondary
 	const disabledClass = disabled ? (variant === 'primary' ? styles.disabledPrimary : styles.disabledSecondary) : ''
@@ -26,14 +30,21 @@ const Button: React.FC<ButtonProps> = ({
 	const allClasses = [globalButtonClass, variantClass, disabledClass, loadingClass].join(' ')
 	return (
 		<button className={allClasses} type={type} disabled={disabled}>
-			<div className={styles.button__container}>
-				{isLoading && (
-					<span className={`${styles.iconSpinner} ${!disabled && styles.iconSpinnerRotate}`}>
-						<Spinner data-testid='spinner' />
+			{isLoading ? (
+				<>
+					<span className={styles.iconSpinner}>
+						<Spinner />
 					</span>
-				)}
-				{children}
-			</div>
+					{children}
+				</>
+			) : (
+				<>
+					<span className={styles.iconPlus}>
+						<Plus scale={10} color='black' />
+					</span>
+					{children}
+				</>
+			)}
 		</button>
 	)
 }
