@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Checkbox.module.css";
+import classNames from "classnames/bind";
+const cx = classNames.bind(styles);
 
 interface CheckboxProps {
   label: string;
@@ -28,9 +30,14 @@ const Checkbox: React.FC<CheckboxProps> = ({
     if (onChange) onChange(!isChecked);
   };
 
+  const labelClasses = cx({
+    label: true,
+    disabled: disabled,
+  });
+
   return (
     <div className={styles.checkbox}>
-      <label className={styles.label}>
+      <label className={labelClasses}>
         <input
           type="checkbox"
           id={id}
