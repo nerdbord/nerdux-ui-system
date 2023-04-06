@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Link.module.css";
 import { Plus } from "../../icons";
+import classNames from "classnames/bind";
+const cx = classNames.bind(styles);
 
 interface LinkProps {
   to: string;
@@ -19,13 +21,13 @@ const Link: React.FC<LinkProps> = ({
   onClick,
   children,
 }) => {
-  const globalLinkClass = styles.linkGlobal;
-  const optionClass =
-    disabled === false ? styles.linkEnabled : styles.linkDisabled;
-  const allClasses = [globalLinkClass, optionClass].join(" ");
+  const linkClasses = cx({
+    linkGlobal: true,
+    linkDisabled: disabled,
+  });
   return (
     <a
-      className={allClasses}
+      className={linkClasses}
       href={to}
       id={id}
       target={target}

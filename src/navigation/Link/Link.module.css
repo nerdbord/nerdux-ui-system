@@ -8,14 +8,11 @@
   line-height: 20px;
   text-decoration: none;
   display: flex;
+  color: #b23386;
 }
 
 .linkGlobal:hover {
   text-decoration: underline;
-}
-
-.linkEnabled {
-  color: #b23386;
 }
 
 .linkDisabled,
