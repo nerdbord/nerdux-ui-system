@@ -1,83 +1,83 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 
 .buttons {
-	min-width: 103px;
-	font-weight: 500;
-	padding: 10px 24px;
-	font-size: 14px;
-	line-height: 20px;
-	display: flex;
+  min-width: 103px;
+  font-weight: 500;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
 }
 
 .buttons:hover .iconPlus svg path {
-	fill: #ffffff;
+  fill: #ffffff;
 }
 .button__container {
-	display: flex;
+  display: flex;
 }
 .primary {
-	color: black;
-	background-color: #ffffff;
-	border: 1px solid #000000;
+  color: black;
+  background-color: #ffffff;
+  border: 1px solid #000000;
 }
 
 .primary:hover {
-	background: #b23386;
-	border: 1px solid #000000;
-	color: #ffffff;
-	box-shadow: 4px 4px 0px #000000;
+  background: #b23386;
+  border: 1px solid #000000;
+  color: #ffffff;
+  box-shadow: 4px 4px 0px #000000;
 }
 .secondary {
-	color: black;
-	border: 1px solid #90a8ed;
-	background: #ffffff;
+  color: black;
+  border: 1px solid #90a8ed;
+  background: #ffffff;
 }
 
 .secondary:hover {
-	background: #90a8ed;
-	box-shadow: 4px 4px 0px #000000;
-	color: #ffffff;
+  background: #90a8ed;
+  box-shadow: 4px 4px 0px #000000;
+  color: #ffffff;
 }
 
 .disabled,
 .disabled:hover {
-	background: #e6e1e5;
-	color: #1c1b1f;
-	opacity: 0.38;
-	box-shadow: none;
+  background: #e6e1e5;
+  color: #1c1b1f;
+  opacity: 0.38;
+  box-shadow: none;
 }
 
 .loadingPrimary,
 .loadingPrimary:hover {
-	background: #ff90e8;
-	color: #ffffff;
-	box-shadow: none;
+  background: #ff90e8;
+  color: #ffffff;
+  box-shadow: none;
 }
 
 .loadingSecondary,
 .loadingSecondary:hover {
-	background: #90a8ed;
-	color: #ffffff;
-	box-shadow: none;
+  background: #90a8ed;
+  color: #ffffff;
+  box-shadow: none;
 }
 
-.iconPlus {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-right: 6px;
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
 }
 
 .iconSpinner {
-	animation: spin 1.5s linear infinite;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-right: 6px;
+  animation: spin 1.5s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
 }
 
 @keyframes spin {
-	to {
-		transform: rotate(360deg);
-	}
+  to {
+    transform: rotate(360deg);
+  }
 }

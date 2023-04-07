@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Button.module.css";
 import { Spinner } from "../../icons";
-import { Plus } from "../../icons";
 import { Fragment } from "react";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
@@ -12,6 +11,7 @@ interface ButtonProps {
   isLoading: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   variant: "primary" | "secondary";
+  icon: React.ReactNode;
   children: React.ReactNode;
 }
 
@@ -20,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   isLoading = false,
   variant = "primary",
+  icon = null,
   children,
 }) => {
   const buttonClasses = cx({
@@ -42,9 +43,7 @@ const Button: React.FC<ButtonProps> = ({
         </>
       ) : (
         <>
-          <span className={styles.iconPlus}>
-            <Plus scale={10} color="black" />
-          </span>
+          {icon && <span className={styles.icon}>{icon}</span>}
           {children}
         </>
       )}
