@@ -10,7 +10,7 @@ interface ButtonProps {
   disabled?: boolean;
   isLoading?: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  variant: 'primary' | 'secondary'
+  variant: "primary" | "secondary";
   icon?: React.ReactNode;
   children: React.ReactNode;
 }
