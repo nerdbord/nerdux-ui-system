@@ -1,18 +1,15 @@
 import * as React from "react";
+import scaleCalculation from "./scaleCalculation";
 
-interface IconDefault {
+interface IconProps {
   color?: string;
   scale?: number;
 }
 
-export const calculateDefaultDimensions = (x: number, scale = 100) => {
-  return (x / 100) * scale;
-};
-
-export const Plus = ({ scale = 100, ...props }: IconDefault) => (
+export const Plus = ({ scale = 100, ...props }: IconProps) => (
   <svg
-    width={calculateDefaultDimensions(16, scale)}
-    height={calculateDefaultDimensions(16, scale)}
+    width={scaleCalculation(16, scale)}
+    height={scaleCalculation(16, scale)}
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

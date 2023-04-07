@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import { Button } from "./Button";
+import { Button, ButtonVariant } from "./Button";
 import React from "react";
 import { Plus } from "../../icons";
 
@@ -19,7 +19,7 @@ export const Default: Story = (args) => (
   <Button
     icon={<Plus />}
     isLoading={false}
-    variant={"primary"}
+    variant={ButtonVariant.primary}
     {...args}
     onClick={() => console.log("clicked")}
   >
@@ -27,7 +27,7 @@ export const Default: Story = (args) => (
   </Button>
 );
 Default.args = {
-  variant: "primary",
+  variant: ButtonVariant.primary,
   disabled: false,
   isLoading: false,
 };
