@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import styles from "./Link.module.css";
 import { Plus } from "../../icons";
 import classNames from "classnames/bind";
@@ -11,16 +11,18 @@ interface LinkProps {
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   children: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
-const Link: React.FC<LinkProps> = ({
+export const Link = ({
   to = "www.google.pl",
   id = "google",
   target = "_blank",
   disabled = false,
   onClick,
   children,
-}) => {
+  icon,
+}: PropsWithChildren<LinkProps>) => {
   const linkClasses = cx({
     linkGlobal: true,
     linkDisabled: disabled,
@@ -33,12 +35,12 @@ const Link: React.FC<LinkProps> = ({
       target={target}
       onClick={onClick}
     >
-      <span className={styles.iconSettings}>
-        <Plus />
-      </span>
+      {icon && (
+        <span className={styles.iconSettings}>
+          <Plus />
+        </span>
+      )}
       {children}
     </a>
   );
 };
-
-export default Link;
