@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import Button from "./Button";
+import { Button } from "./Button";
 import React from "react";
 import { Plus } from "../../icons";
 

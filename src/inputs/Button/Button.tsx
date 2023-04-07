@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import styles from "./Button.module.css";
 import { Spinner } from "../../icons";
 import { Fragment } from "react";
@@ -15,14 +15,14 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   type = "button",
   disabled = false,
-  isLoading = false,
-  variant = "primary",
-  icon = null,
+  isLoading,
+  variant,
+  icon,
   children,
-}) => {
+}: PropsWithChildren<ButtonProps>) => {
   const buttonClasses = cx({
     buttons: true,
     primary: variant === "primary",
@@ -50,5 +50,3 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;
