@@ -19,10 +19,17 @@ export const Link = ({
   id = "google",
   target = "_blank",
   disabled = false,
-  onClick,
   children,
   icon,
 }: PropsWithChildren<LinkProps>) => {
+  const handleClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    {
+      disabled && event.preventDefault();
+    }
+  };
+
   const linkClasses = cx({
     linkGlobal: true,
     linkDisabled: disabled,
@@ -33,7 +40,7 @@ export const Link = ({
       href={to}
       id={id}
       target={target}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {icon && (
         <span className={styles.iconSettings}>
