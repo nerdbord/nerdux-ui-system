@@ -10,7 +10,6 @@ interface LinkProps {
   target?: "_blank" | "_self" | "_parent" | "_top";
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-  children: React.ReactNode;
   icon?: React.ReactNode;
 }
 
