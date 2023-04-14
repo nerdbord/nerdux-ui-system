@@ -13,7 +13,7 @@ interface CheckboxProps {
   onChange?: (checked: boolean) => void;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
   label,
   id,
   value,
@@ -52,5 +52,3 @@ const Checkbox: React.FC<CheckboxProps> = ({
     </div>
   );
 };
-
-export default Checkbox;
