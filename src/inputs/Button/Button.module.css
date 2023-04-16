@@ -1,26 +1,26 @@
-.primary {
-  color: #000000;
-  border: 1px solid #000000;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 
-.secondary {
-  border: 1px solid #90a8ed;
-  color: #90a8ed;
-}
-
-.template {
-  font-style: normal;
-  font-weight: 500;
-  background: #ffffff;
-  font-size: 14px;
+.buttons {
   min-width: 103px;
+  font-weight: 500;
   padding: 10px 24px;
+  font-size: 14px;
   line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.disabledSecondary {
-  border: 1px solid rgba(28, 27, 31, 0.12);
-  opacity: 0.38;
+.buttons:hover .iconPlus svg path {
+  fill: #ffffff;
+}
+.button__container {
+  display: flex;
+}
+.primary {
+  color: black;
+  background-color: #ffffff;
+  border: 1px solid #000000;
 }
 
 .primary:hover {
@@ -29,30 +29,51 @@
   color: #ffffff;
   box-shadow: 4px 4px 0px #000000;
 }
+.secondary {
+  color: black;
+  border: 1px solid #90a8ed;
+  background: #ffffff;
+}
 
 .secondary:hover {
   background: #90a8ed;
+  box-shadow: 4px 4px 0px #000000;
   color: #ffffff;
-  filter: drop-shadow(4px 4px 0px #000000);
 }
 
-.disabledPrimary,
-.disabledPrimary:hover,
-.disabledSecondary,
-.disabledSecondary:hover {
-  opacity: 0.38;
-  box-shadow: unset;
-  filter: unset;
-  color: #1c1b1f;
-}
-
-.disabledPrimary,
-.disabledPrimary:hover {
+.disabled,
+.disabled:hover {
   background: #e6e1e5;
-  border: 1px solid transparent;
+  color: #1c1b1f;
+  opacity: 0.38;
+  box-shadow: none;
 }
 
-.disabledSecondary,
-.disabledSecondary:hover {
-  background: #fff;
+.isLoading,
+.isLoading:hover {
+  background: #ff90e8;
+  color: white;
+  box-shadow: none;
+  border: none;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
+}
+
+.iconSpinner {
+  animation: spin 1.5s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 6px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

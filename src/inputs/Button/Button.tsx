@@ -1,44 +1,50 @@
-import { PropsWithChildren } from "react";
-import * as React from "react";
-
+import React, { PropsWithChildren } from "react";
 import styles from "./Button.module.css";
+import { Spinner } from "../../icons";
+import { Fragment } from "react";
+import classNames from "classnames/bind";
+const cx = classNames.bind(styles);
 
-export interface ButtonProps {
-  onClick(): void;
+interface ButtonProps {
+  type?: "button" | "submit";
   disabled?: boolean;
-  variant?: "primary" | "secondary";
   isLoading?: boolean;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  variant: "primary" | "secondary";
+  icon?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export const Button = ({
+  type = "button",
   disabled = false,
-  variant = "primary",
-  ...props
+  isLoading,
+  variant,
+  icon,
+  children,
 }: PropsWithChildren<ButtonProps>) => {
-  const variantClass =
-    variant === "primary" ? styles.primary : styles.secondary;
-
-  const getDisabledClassForSpecificVariant = (): string | void => {
-    if (disabled) {
-      return variant === "primary"
-        ? styles.disabledPrimary
-        : styles.disabledSecondary;
-    }
-  };
-
-  const dynamicClasses = [
-    styles.template,
-    variantClass,
-    getDisabledClassForSpecificVariant(),
-  ].join(" ");
+  const buttonClasses = cx({
+    buttons: true,
+    [variant]: true,
+    disabled: disabled,
+    isLoading: isLoading && !disabled,
+  });
 
   return (
-    <button
-      className={dynamicClasses}
-      onClick={props.onClick}
-      disabled={disabled}
-    >
-      {props.children}
+    <button className={buttonClasses} type={type} disabled={disabled}>
+      {!disabled && isLoading ? (
+        <>
+          <span className={styles.iconSpinner}>
+            <Spinner />
+          </span>
+          {children}
+        </>
+      ) : (
+        <>
+          {icon && <span className={styles.icon}>{icon}</span>}
+          {children}
+        </>
+      )}
     </button>
   );
 };
