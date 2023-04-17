@@ -1,15 +1,23 @@
 import { Meta, Story } from "@storybook/react";
-import Button from "./Button";
-import styles from "./Button.module.css";
-import { Plus } from "../../icons";
+import { Button } from "./Button";
 import React from "react";
+import { Plus } from "../../icons";
 
 export default {
   component: Button,
+  argTypes: {
+    icon: {
+      options: {
+        none: null,
+        Settings: <Plus />,
+      },
+    },
+  },
 } as Meta;
 
 export const Default: Story = (args) => (
   <Button
+    icon={<Plus />}
     isLoading={false}
     variant={"primary"}
     {...args}
@@ -19,27 +27,6 @@ export const Default: Story = (args) => (
   </Button>
 );
 Default.args = {
-  variant: "primary",
-  disabled: false,
-  isLoading: false,
-};
-
-export const Icon: Story = (args) => (
-  <Button
-    isLoading={false}
-    variant={"primary"}
-    {...args}
-    onClick={() => console.log("clicked")}
-  >
-    <div className={styles.button__container}>
-      <span className={styles.iconSettings}>
-        <Plus />
-      </span>
-      Button
-    </div>
-  </Button>
-);
-Icon.args = {
   variant: "primary",
   disabled: false,
   isLoading: false,

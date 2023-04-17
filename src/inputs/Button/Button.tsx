@@ -1,71 +1,53 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import styles from "./Button.module.css";
 import { Spinner } from "../../icons";
+import { Fragment } from "react";
+import classNames from "classnames/bind";
+const cx = classNames.bind(styles);
+
 
 interface ButtonProps {
   type?: "button" | "submit";
   disabled?: boolean;
   isLoading?: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  variant?: "primary" | "secondary";
+
+  variant: "primary" | "secondary";
+  icon?: React.ReactNode;
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   type = "button",
   disabled = false,
-  isLoading = false,
-  variant = "primary",
+  isLoading,
+  variant,
+  icon,
   children,
-  onClick,
-}) => {
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (!disabled && !isLoading) {
-      onClick(event);
-    }
-  };
+}: PropsWithChildren<ButtonProps>) => {
+  const buttonClasses = cx({
+    buttons: true,
+    [variant]: true,
+    disabled: disabled,
+    isLoading: isLoading && !disabled,
+  });
 
-  const globalButtonClass = styles.buttons;
-  const variantClass =
-    variant === "primary" ? styles.primary : styles.secondary;
-  const disabledClass = disabled
-    ? variant === "primary"
-      ? styles.disabledPrimary
-      : styles.disabledSecondary
-    : "";
-  const loadingClass = isLoading
-    ? variant === "primary"
-      ? styles.loadingPrimary
-      : styles.loadingSecondary
-    : "";
-
-  const allClasses = [
-    globalButtonClass,
-    variantClass,
-    disabledClass,
-    loadingClass,
-  ].join(" ");
   return (
-    <button
-      className={allClasses}
-      type={type}
-      disabled={disabled}
-      onClick={handleClick}
-    >
-      <div className={styles.button__container}>
-        {isLoading && (
-          <span
-            className={`${styles.iconSpinner} ${
-              !disabled && styles.iconSpinnerRotate
-            }`}
-          >
-            <Spinner data-testid="spinner" />
+    <button className={buttonClasses} type={type} disabled={disabled}>
+      {!disabled && isLoading ? (
+        <>
+          <span className={styles.iconSpinner}>
+            <Spinner />
           </span>
-        )}
-        {children}
-      </div>
+          {children}
+        </>
+      ) : (
+        <>
+          {icon && <span className={styles.icon}>{icon}</span>}
+          {children}
+        </>
+      )}
     </button>
   );
 };
 
-export default Button;

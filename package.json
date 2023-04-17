@@ -1,6 +1,6 @@
 {
   "name": "nerdux-ui-system",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "Nerdbord",
   "license": "MIT",
   "main": "./dist/index.js",
