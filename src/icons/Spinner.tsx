@@ -2,6 +2,7 @@ import * as React from "react";
 
 export const Spinner = () => (
   <svg
+    data-testid="spinner"
     width="18"
     height="18"
     viewBox="0 0 18 18"
