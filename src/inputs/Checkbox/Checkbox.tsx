@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { PropsWithChildren, useState } from "react";
 import styles from "./Checkbox.module.css";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
@@ -13,7 +13,7 @@ interface CheckboxProps {
   onChange?: (checked: boolean) => void;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox = ({
   label,
   id,
   value,
@@ -21,7 +21,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   disabled = false,
   checked = false,
   onChange,
-}) => {
+}: PropsWithChildren<CheckboxProps>) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleChange = () => {
