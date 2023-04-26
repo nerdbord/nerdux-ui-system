@@ -1,16 +1,13 @@
 import * as React from "react";
-import scaleCalculation from "./scaleCalculation";
 
-interface IconProps {
-  color?: string;
-  scale?: number;
-}
 
-export const Arrow = ({ scale = 100, ...props }: IconProps) => {
+
+
+export const Arrow = () => {
   return (
     <svg
-    width={scaleCalculation(16, scale)}
-    height={scaleCalculation(16, scale)}
+      width="12"
+      height="8"
       viewBox="0 0 12 8"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
