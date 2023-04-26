@@ -2,11 +2,10 @@ import React, { PropsWithChildren, useState } from "react";
 import styles from "./Accordion.module.css";
 import { Arrow } from "../../icons/Arrow";
 
-
 interface AccordionProps {
   header: string;
   defaultOpen: boolean;
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const Accordion = ({
@@ -22,12 +21,11 @@ export const Accordion = ({
 
   return (
     <div className={styles.accordionDefault}>
-      <div className={styles.accordionHeader}>
+      <div className={styles.accordionHeader} onClick={handleSwitch}>
         <span>{header}</span>
         <span
-          onClick={handleSwitch}
-          className={isOpen ? styles.arrowRotate : ""}
-        >
+          className={!isOpen ? styles.accordionArrow : styles.accordionArrowRotate }
+          >
           <Arrow />
         </span>
       </div>
