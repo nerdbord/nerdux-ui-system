@@ -5,10 +5,10 @@ import { Checked } from "../../icons/Checked";
 const cx = classNames.bind(styles);
 
 interface CheckboxProps {
+  label?: string | React.ReactNode;
   id: string;
   name: string;
   value?: string;
-  label?: string;
   error?: string;
   checked: boolean;
   disabled?: boolean;

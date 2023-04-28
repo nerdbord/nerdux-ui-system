@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from "react";
 import styles from "./Link.module.css";
-import { Plus } from "../../icons";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
@@ -10,7 +9,6 @@ interface LinkProps {
   target?: "_blank" | "_self" | "_parent" | "_top";
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-  icon?: React.ReactNode;
 }
 
 export const Link = ({
@@ -19,7 +17,6 @@ export const Link = ({
   target = "_blank",
   disabled = false,
   children,
-  icon,
 }: PropsWithChildren<LinkProps>) => {
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -30,8 +27,8 @@ export const Link = ({
   };
 
   const linkClasses = cx({
-    linkGlobal: true,
-    linkDisabled: disabled,
+    default: true,
+    disabled: disabled,
   });
   return (
     <a
@@ -41,11 +38,6 @@ export const Link = ({
       target={target}
       onClick={handleClick}
     >
-      {icon && (
-        <span className={styles.iconSettings}>
-          <Plus />
-        </span>
-      )}
       {children}
     </a>
   );

@@ -35,7 +35,7 @@ export const ListItemSwitch: StoryFn<ListItemArgs> = (args) => (
   <>
     <List>
       <ListItem>
-        <div className={styles.switchContainer}>
+        <div className={styles.switchWrapper}>
           <Switch
             id={""}
             onChange={() => {
@@ -65,7 +65,7 @@ export const ListItemCheckbox: StoryFn<ListItemArgs> = (args) => (
           <h3 className={styles.header}>{args.header}</h3>
           <p className={styles.supportText}>{args.supportText}</p>
         </div>
-        <div className={styles.checkboxContainer}>
+        <div className={styles.checkboxWrapper}>
           <Checkbox
             id={""}
             name={""}

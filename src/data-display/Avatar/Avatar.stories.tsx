@@ -5,19 +5,13 @@ import avatarIcon from "../../assets/avatar/1.jpg";
 
 export default {
   component: Avatar,
-  argTypes: {
-    size: {
-      options: ["big", "medium", "small"],
-      control: { type: "select" },
-    },
-  },
 } as Meta;
 
-export const MultiAvatar: StoryFn = (args) => (
+export const Default: StoryFn = (args) => (
   <Avatar alt={""} src={""} {...args} />
 );
 
-MultiAvatar.args = {
+Default.args = {
   src: avatarIcon,
   alt: "Mexican Deathmask",
   size: "big",

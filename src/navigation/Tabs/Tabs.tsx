@@ -69,6 +69,6 @@ export const TabContent = ({
   const { activeTabId } = useContext(TabContext);
 
   return activeTabId === id ? (
-    <div className={styles.tabContent}>{children}</div>
+    <div className={styles.content}>{children}</div>
   ) : null;
 };

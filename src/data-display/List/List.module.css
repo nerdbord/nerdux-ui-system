@@ -9,11 +9,11 @@
   display: flex;
 }
 
-.switchContainer {
+.switchWrapper {
   margin-right: 10px;
 }
 
-.checkboxContainer {
+.checkboxWrapper {
   margin-left: 10px;
 }
 
