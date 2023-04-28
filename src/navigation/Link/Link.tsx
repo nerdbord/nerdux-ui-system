@@ -18,11 +18,13 @@ export const Link = ({
   disabled = false,
   children,
 }: PropsWithChildren<LinkProps>) => {
-	const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-		{
-			disabled && event.preventDefault()
-		}
-	}
+  const handleClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    {
+      disabled && event.preventDefault();
+    }
+  };
 
   const linkClasses = cx({
     default: true,
