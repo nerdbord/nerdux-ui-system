@@ -5,19 +5,13 @@ import { TextField, TextFieldProps } from "./TextField";
 
 export default {
   component: TextField,
-  argTypes: {
-    type: {
-      options: ["text", "password"],
-      control: { type: "select" },
-    },
-  },
 } as Meta;
 
-export const MultiTextField: Story = (args) => (
+export const Default: Story = (args) => (
   <TextField {...(args as TextFieldProps)}></TextField>
 );
 
-MultiTextField.args = {
+Default.args = {
   id: "id",
   name: "name",
   type: "text",

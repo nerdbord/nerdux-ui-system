@@ -1,4 +1,4 @@
-.accordionDefault {
+.default {
 	display: flex;
 	flex-direction: column;
 	max-width: 486px;
@@ -7,7 +7,7 @@
 	padding: 10px;
 }
 
-.accordionHeader {
+.header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -16,19 +16,19 @@
 	line-height: 24px;
 }
 
-.accordionContent {
+.content {
 	font-family: 'Inter';
 	font-weight: 400;
 	line-height: 24px;
 	margin-top: 10px;
 }
 
-.accordionArrow,
-.accordionArrowRotate {
+.arrow,
+.arrowRotate {
 	display: flex;
 	align-items: center;
 }
 
-.accordionArrowRotate {
+.arrowRotate {
 	transform: rotate(180deg);
 }

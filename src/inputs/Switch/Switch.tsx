@@ -21,13 +21,13 @@ export const Switch = ({
   const [checked, setChecked] = useState(false);
 
   const labelClassName = cx({
-    switchLabel: true,
-    switchLabelDisabled: disabled,
+    label: true,
+    labelDisabled: disabled,
   });
 
   const sliderClassName = cx({
-    switchSlider: true,
-    switchSliderDisabled: disabled,
+    slider: true,
+    sliderDisabled: disabled,
   });
 
   return (

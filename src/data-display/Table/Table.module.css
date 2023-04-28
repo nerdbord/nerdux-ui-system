@@ -1,21 +1,21 @@
-.table {
+.wrapper {
   border-spacing: 0px;
   outline: 1.5px solid #1c1b1f;
 }
 
-.tableHead {
+.head {
   background: #1c1b1f;
   color: #ffffff;
   height: 56px;
   border-spacing: 0;
 }
 
-.tableRow {
+.row {
   outline: 0.1px solid #1c1b1f;
   display: flex;
 }
 
-.tableCell {
+.cell {
   padding: 15px 10px;
   font-size: 14px;
   line-height: 20px;

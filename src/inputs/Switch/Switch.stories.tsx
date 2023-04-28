@@ -4,7 +4,6 @@ import { Switch, SwitchProps } from "./Switch";
 
 export default {
   component: Switch,
-  argTypes: {},
 } as Meta;
 
 export const SwitchField: Story = (args) => (

@@ -14,9 +14,7 @@
 .buttons:hover .iconPlus svg path {
   fill: #ffffff;
 }
-.button__container {
-	display: flex;
-}
+
 .primary {
 	color: black;
 	background-color: #ffffff;

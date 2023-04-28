@@ -3,7 +3,7 @@ import styles from "./List.module.css";
 import { List, ListItem } from "./List";
 import React, { Fragment } from "react";
 import { Switch } from "../../inputs";
-import Checkbox from "../../inputs/Checkbox/Checkbox";
+import {Checkbox } from "../../inputs/Checkbox/Checkbox";
 
 interface ListItemArgs {
   header: string;
@@ -35,7 +35,7 @@ export const ListItemSwitch: Story<ListItemArgs> = (args) => (
   <>
     <List>
       <ListItem>
-        <div className={styles.switchContainer}>
+        <div className={styles.switchWrapper}>
           <Switch
             id={""}
             onChange={() => {
@@ -65,7 +65,7 @@ export const ListItemCheckbox: Story<ListItemArgs> = (args) => (
           <h3 className={styles.header}>{args.header}</h3>
           <p className={styles.supportText}>{args.supportText}</p>
         </div>
-        <div className={styles.checkboxContainer}>
+        <div className={styles.checkboxWrapper}>
           <Checkbox
             id={""}
             name={""}
