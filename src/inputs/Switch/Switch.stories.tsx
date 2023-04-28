@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import * as React from "react";
 import { Switch, SwitchProps } from "./Switch";
 
@@ -7,9 +7,7 @@ export default {
   argTypes: {},
 } as Meta;
 
-export const SwitchField: Story = (args) => (
-  <Switch {...(args as SwitchProps)}></Switch>
-);
+export const SwitchField: StoryFn<SwitchProps> = (args) => <Switch {...args} />;
 
 SwitchField.args = {
   checked: false,

@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Avatar } from "./Avatar";
 import * as React from "react";
 import avatarIcon from "../../assets/avatar/1.jpg";
@@ -13,8 +13,8 @@ export default {
   },
 } as Meta;
 
-export const MultiAvatar: Story = (args) => (
-  <Avatar alt={""} src={""} {...args}></Avatar>
+export const MultiAvatar: StoryFn = (args) => (
+  <Avatar alt={""} src={""} {...args} />
 );
 
 MultiAvatar.args = {

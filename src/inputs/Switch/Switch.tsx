@@ -43,7 +43,7 @@ export const Switch = ({
         }}
         id={id}
       />
-      <span className={sliderClassName}></span>
+      <span className={sliderClassName} />
     </label>
   );
 };

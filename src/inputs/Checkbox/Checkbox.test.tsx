@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Checkbox from "./Checkbox";
+import { Checkbox } from "./Checkbox";
 
 describe("Checkbox", () => {
   it("should call onChange when clicked", () => {
@@ -35,11 +35,12 @@ describe("Checkbox", () => {
       />
     );
     const checkbox = getByLabelText("label");
-    fireEvent.click(checkbox);
+    fireEvent.change(checkbox, { target: { checked: true } });
     expect(onChange).not.toHaveBeenCalled();
   });
 
   it("should change checked state when clicked", () => {
+    const onChange = jest.fn();
     const { getByLabelText } = render(
       <Checkbox
         label="label"
@@ -48,13 +49,13 @@ describe("Checkbox", () => {
         value={""}
         checked={false}
         disabled={false}
-        onChange={undefined}
+        onChange={onChange}
       />
     );
     const checkbox = getByLabelText("label") as HTMLInputElement;
-    fireEvent.click(checkbox);
+    fireEvent.change(checkbox, { target: { checked: true } });
     expect(checkbox.checked).toBe(true);
-    fireEvent.click(checkbox);
+    fireEvent.change(checkbox, { target: { checked: false } });
     expect(checkbox.checked).toBe(false);
   });
 });

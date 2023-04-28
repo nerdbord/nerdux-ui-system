@@ -1,13 +1,23 @@
 import React from "react";
 import { Checkbox } from "./Checkbox";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 export default {
   component: Checkbox,
 } as Meta;
 
-export const Default: Story = (args) => (
-  <Checkbox value={""} name={""} id={""} label={""} {...args} />
+export const Default: StoryFn = (args) => (
+  <Checkbox
+    onChange={() => {
+      console.log("Checkbox changed!");
+    }}
+    checked={false}
+    value={""}
+    name={""}
+    id={""}
+    label={""}
+    {...args}
+  />
 );
 
 Default.args = {

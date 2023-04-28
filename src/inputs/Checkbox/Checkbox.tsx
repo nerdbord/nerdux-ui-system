@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Checkbox.module.css";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 interface CheckboxProps {
-  label: string;
   id: string;
-  value: string;
   name: string;
+  value?: string;
+  label?: string;
+  error?: string;
+  checked: boolean;
   disabled?: boolean;
-  checked?: boolean;
-  onChange?: (checked: boolean) => void;
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
@@ -22,13 +23,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   checked = false,
   onChange,
 }) => {
-  const [isChecked, setIsChecked] = useState(checked);
+  const [isChecked, setChecked] = useState(checked);
 
-  const handleChange = () => {
-    if (disabled) return;
-    setIsChecked(!isChecked);
-    if (onChange) onChange(!isChecked);
-  };
+  useEffect(() => {
+    setChecked(checked);
+  }, [checked]);
 
   const labelClasses = cx({
     label: true,
@@ -45,7 +44,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           name={name}
           checked={isChecked}
           disabled={disabled}
-          onChange={handleChange}
+          onChange={onChange}
         />
         {label}
       </label>
