@@ -23,10 +23,7 @@ export const Accordion = ({
     <div className={styles.default}>
       <div className={styles.header} onClick={handleSwitch}>
         <span>{header}</span>
-        <span
-          className={
-            !isOpen ? styles.arrow : styles.arrowRotate}
-        >
+        <span className={!isOpen ? styles.arrow : styles.arrowRotate}>
           <Arrow />
         </span>
       </div>
