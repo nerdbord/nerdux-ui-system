@@ -12,7 +12,8 @@ interface AvatarProps {
 
 export const Avatar = ({
   size = "big",
-  src, alt
+  src,
+  alt,
 }: PropsWithChildren<AvatarProps>) => {
   const imgAvatarClasses = cx({
     templateAvatar: true,

@@ -3,7 +3,7 @@ import styles from "./List.module.css";
 import { List, ListItem } from "./List";
 import React, { Fragment } from "react";
 import { Switch } from "../../inputs";
-import {Checkbox } from "../../inputs/Checkbox/Checkbox";
+import { Checkbox } from "../../inputs/Checkbox/Checkbox";
 
 interface ListItemArgs {
   header: string;
