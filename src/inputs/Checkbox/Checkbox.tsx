@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Checkbox.module.css";
 import classNames from "classnames/bind";
+import { Checked } from "../../icons/Checked";
 const cx = classNames.bind(styles);
 
 interface CheckboxProps {
@@ -21,6 +22,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   name,
   disabled = false,
   checked = false,
+  error,
   onChange,
 }) => {
   const [isChecked, setChecked] = useState(checked);
@@ -29,25 +31,38 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     setChecked(checked);
   }, [checked]);
 
-  const labelClasses = cx({
-    label: true,
+  const dynamicClasses = cx({
+    baseCheckbox: true,
+    disabled: disabled,
+    checked: isChecked,
+    errorCheckbox: !!error,
+  });
+
+  const wrapperDynamicClass = cx({
+    checkboxWrapper: true,
     disabled: disabled,
   });
 
   return (
-    <div className={styles.checkbox}>
-      <label className={labelClasses}>
+    <div>
+      <label className={wrapperDynamicClass} htmlFor={id}>
+        <div className={dynamicClasses}>{isChecked && <Checked />}</div>
         <input
           type="checkbox"
-          id={id}
           value={value}
+          hidden
           name={name}
-          checked={isChecked}
           disabled={disabled}
-          onChange={onChange}
+          checked={isChecked}
+          id={id}
+          onChange={(e) => {
+            setChecked(!isChecked);
+            onChange(e);
+          }}
         />
-        {label}
+        {label && label}
       </label>
+      {error && <span className={styles.error}>{error}</span>}
     </div>
   );
 };

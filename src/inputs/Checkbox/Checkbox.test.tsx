@@ -9,8 +9,8 @@ describe("Checkbox", () => {
       <Checkbox
         label="label"
         onChange={onChange}
-        id={""}
-        name={""}
+        id={"label-1"}
+        name={"label"}
         value={""}
         checked={false}
         disabled={false}
@@ -28,8 +28,8 @@ describe("Checkbox", () => {
         label="label"
         disabled
         onChange={onChange}
-        id={""}
-        name={""}
+        id={"label-1"}
+        name={"label"}
         value={""}
         checked={false}
       />
@@ -44,8 +44,8 @@ describe("Checkbox", () => {
     const { getByLabelText } = render(
       <Checkbox
         label="label"
-        id={""}
-        name={""}
+        id={"label-1"}
+        name={"label"}
         value={""}
         checked={false}
         disabled={false}

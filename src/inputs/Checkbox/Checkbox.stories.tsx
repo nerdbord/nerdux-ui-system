@@ -13,15 +13,15 @@ export const Default: StoryFn = (args) => (
     }}
     checked={false}
     value={""}
-    name={""}
-    id={""}
-    label={""}
+    name={"checkbox"}
+    id={"checkbox-1"}
+    label={"Checkbox"}
     {...args}
   />
 );
 
 Default.args = {
-  checked: true,
+  checked: false,
   disabled: false,
   label: "Checkbox label",
 };
