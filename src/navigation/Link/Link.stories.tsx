@@ -11,7 +11,7 @@ export default {
 export const Default: StoryFn = (args) => (
   <Link to={""} {...args} onClick={() => console.log("clicked")}>
     <span className={styles.iconSettings}>
-      <Plus />
+      <Plus scale={80} />
     </span>{" "}
     Click Me!
   </Link>

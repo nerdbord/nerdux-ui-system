@@ -100,11 +100,6 @@
   cursor: pointer;
 }
 
-svg {
-  height: 18px;
-  width: 18px;
-}
-
 .labelDisabled {
   color: rgba(72, 70, 73, 0.38);
 }
