@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 interface CheckboxProps {
-  label: string;
+  label: string | React.ReactNode;
   id: string;
   value: string;
   name: string;
