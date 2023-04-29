@@ -2,7 +2,7 @@ node_modules
 /build
 /coverage
 /storybook-static
-#/dist
+/dist
 /*.log
 .idea
 .vsc
