@@ -1,11 +1,11 @@
-name: 'Dev - PR Open'
+name: "Dev - PR Open"
 on:
   pull_request:
     types:
       - opened
 jobs:
   add_comment:
-    name: 'Add Comment'
+    name: "Add Comment"
     runs-on: ubuntu-latest
     steps:
       - uses: mshick/add-pr-comment@v1

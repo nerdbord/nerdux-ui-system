@@ -3,6 +3,7 @@ node_modules
 /coverage
 #/dist
 /*.log
+/dist
 .idea
 .vsc
 .vercel
