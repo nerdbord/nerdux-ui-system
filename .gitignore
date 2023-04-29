@@ -1,11 +1,10 @@
 node_modules
 /build
-/dist
 /coverage
 /storybook-static
 #/dist
 /*.log
-/dist
 .idea
 .vsc
 .vercel
+.parcel-cache
