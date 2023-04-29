@@ -1,7 +1,5 @@
-import { PropsWithChildren } from "react";
-import * as React from "react";
+import React, { PropsWithChildren } from "react";
 import classNames from "classnames/bind";
-
 import styles from "./Avatar.module.css";
 
 const cx = classNames.bind(styles);
@@ -14,24 +12,25 @@ interface AvatarProps {
 
 export const Avatar = ({
   size = "big",
-  ...props
+  src,
+  alt,
 }: PropsWithChildren<AvatarProps>) => {
-  const avatarClassName = cx({
+  const imgAvatarClasses = cx({
     templateAvatar: true,
     [size]: true,
   });
 
-  const defaultAvatarClassName = cx({
+  const defaultAvatarClasses = cx({
     templateDefault: true,
     [size]: true,
   });
 
   return (
-    <div className={styles.avatarWrapper}>
-      {props.src ? (
-        <img src={props.src} alt={props.alt} className={avatarClassName} />
+    <div className={styles.wrapper}>
+      {src ? (
+        <img src={src} alt={alt} className={imgAvatarClasses} />
       ) : (
-        <div className={defaultAvatarClassName}>
+        <div className={defaultAvatarClasses}>
           <p>A</p>
         </div>
       )}

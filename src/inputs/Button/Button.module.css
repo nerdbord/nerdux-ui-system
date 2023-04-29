@@ -14,9 +14,6 @@
 .buttons:hover .iconPlus svg path {
   fill: #ffffff;
 }
-.button__container {
-  display: flex;
-}
 .primary {
   color: black;
   background-color: #ffffff;
@@ -29,6 +26,7 @@
   color: #ffffff;
   box-shadow: 4px 4px 0px #000000;
 }
+
 .secondary {
   color: black;
   border: 1px solid #90a8ed;
@@ -39,6 +37,16 @@
   background: #90a8ed;
   box-shadow: 4px 4px 0px #000000;
   color: #ffffff;
+}
+
+.pressed,
+.pressed:hover {
+  box-shadow: unset;
+  filter: unset;
+
+  border-width: 3px 1px 1px 3px;
+  border-style: solid;
+  border-color: #000000;
 }
 
 .disabled,

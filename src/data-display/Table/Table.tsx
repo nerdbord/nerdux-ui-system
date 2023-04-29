@@ -8,15 +8,15 @@ interface TableCellProps extends PropsWithChildren<{}> {
 }
 
 export const Table = ({ children }: PropsWithChildren<{}>) => (
-  <table className={`${styles.table}`}>{children}</table>
+  <table className={styles.wrapper}>{children}</table>
 );
 
 export const TableHead = ({ children }: PropsWithChildren<{}>) => (
-  <thead className={`${styles.tableHead}`}>{children}</thead>
+  <thead className={styles.head}>{children}</thead>
 );
 
 export const TableRow = ({ children }: PropsWithChildren<{}>) => (
-  <tr className={`${styles.tableRow}`}>{children}</tr>
+  <tr className={styles.row}>{children}</tr>
 );
 
 export const TableBody = ({ children }: PropsWithChildren<{}>) => (
@@ -24,7 +24,7 @@ export const TableBody = ({ children }: PropsWithChildren<{}>) => (
 );
 
 export const TableCell = ({ children, align }: TableCellProps) => (
-  <td className={`${styles.tableCell}`} style={{ textAlign: align }}>
+  <td className={styles.cell} style={{ textAlign: align }}>
     {children}
   </td>
 );

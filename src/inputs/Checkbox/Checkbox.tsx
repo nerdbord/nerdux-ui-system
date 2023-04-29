@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Checkbox.module.css";
 import classNames from "classnames/bind";
+import { Checked } from "../../icons/Checked";
 const cx = classNames.bind(styles);
 
 interface CheckboxProps {
-  label: string;
+  label?: string | React.ReactNode;
   id: string;
-  value: string;
   name: string;
+  value?: string;
+  error?: string;
+  checked: boolean;
   disabled?: boolean;
-  checked?: boolean;
-  onChange?: (checked: boolean) => void;
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
@@ -20,35 +22,47 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   name,
   disabled = false,
   checked = false,
+  error,
   onChange,
 }) => {
-  const [isChecked, setIsChecked] = useState(checked);
+  const [isChecked, setChecked] = useState(checked);
 
-  const handleChange = () => {
-    if (disabled) return;
-    setIsChecked(!isChecked);
-    if (onChange) onChange(!isChecked);
-  };
+  useEffect(() => {
+    setChecked(checked);
+  }, [checked]);
 
-  const labelClasses = cx({
-    label: true,
+  const dynamicClasses = cx({
+    baseCheckbox: true,
+    disabled: disabled,
+    checked: isChecked,
+    errorCheckbox: !!error,
+  });
+
+  const wrapperDynamicClass = cx({
+    checkboxWrapper: true,
     disabled: disabled,
   });
 
   return (
-    <div className={styles.checkbox}>
-      <label className={labelClasses}>
+    <div>
+      <label className={wrapperDynamicClass} htmlFor={id}>
+        <div className={dynamicClasses}>{isChecked && <Checked />}</div>
         <input
           type="checkbox"
-          id={id}
           value={value}
+          hidden
           name={name}
-          checked={isChecked}
           disabled={disabled}
-          onChange={handleChange}
+          checked={isChecked}
+          id={id}
+          onChange={(e) => {
+            setChecked(!isChecked);
+            onChange(e);
+          }}
         />
-        {label}
+        {label && label}
       </label>
+      {error && <span className={styles.error}>{error}</span>}
     </div>
   );
 };

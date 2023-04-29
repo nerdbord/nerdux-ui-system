@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { Button } from "./Button";
 import React from "react";
 import { Plus } from "../../icons";
@@ -9,15 +9,15 @@ export default {
     icon: {
       options: {
         none: null,
-        Settings: <Plus />,
+        Settings: <Plus scale={80} />,
       },
     },
   },
 } as Meta;
 
-export const Default: Story = (args) => (
+export const Default: StoryFn = (args) => (
   <Button
-    icon={<Plus />}
+    icon={<Plus scale={80} />}
     isLoading={false}
     variant={"primary"}
     {...args}

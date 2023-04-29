@@ -20,18 +20,14 @@ export const Accordion = ({
   };
 
   return (
-    <div className={styles.accordionDefault}>
-      <div className={styles.accordionHeader} onClick={handleSwitch}>
+    <div className={styles.default}>
+      <div className={styles.header} onClick={handleSwitch}>
         <span>{header}</span>
-        <span
-          className={
-            !isOpen ? styles.accordionArrow : styles.accordionArrowRotate
-          }
-        >
+        <span className={!isOpen ? styles.arrow : styles.arrowRotate}>
           <Arrow />
         </span>
       </div>
-      {isOpen && <div className={styles.accordionContent}>{children}</div>}
+      {isOpen && <div className={styles.content}>{children}</div>}
     </div>
   );
 };
