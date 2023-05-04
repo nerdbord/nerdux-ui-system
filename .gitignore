@@ -5,6 +5,7 @@ node_modules
 /dist
 /*.log
 .idea
+.vercel
 .vsc
 .vercel
 .parcel-cache
