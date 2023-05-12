@@ -27,7 +27,7 @@ export const Link = ({
   };
 
   const linkClasses = cx({
-    default: true,
+    defaultLink: true,
     disabled: disabled,
   });
   return (
