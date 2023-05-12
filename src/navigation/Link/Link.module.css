@@ -1,5 +1,5 @@
-.default {
-  font-family: "Inter";
+.defaultLink {
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -9,7 +9,7 @@
   color: #b23386;
 }
 
-.default:hover {
+.defaultLink:hover {
   text-decoration: underline;
 }
 
