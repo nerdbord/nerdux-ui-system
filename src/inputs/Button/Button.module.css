@@ -15,19 +15,19 @@
   fill: #ffffff;
 }
 .button__container {
-	display: flex;
+  display: flex;
 }
 .primary {
-	color: black;
-	background-color: #ffffff;
-	border: 1px solid #000000;
+  color: black;
+  background-color: #ffffff;
+  border: 1px solid #000000;
 }
 
 .primary:hover {
-	background: #b23386;
-	border: 1px solid #000000;
-	color: #ffffff;
-	box-shadow: 4px 4px 0px #000000;
+  background: #b23386;
+  border: 1px solid #000000;
+  color: #ffffff;
+  box-shadow: 4px 4px 0px #000000;
 }
 .secondary {
   color: black;
@@ -73,7 +73,7 @@
 }
 
 @keyframes spin {
-	to {
-		transform: rotate(360deg);
-	}
+  to {
+    transform: rotate(360deg);
+  }
 }

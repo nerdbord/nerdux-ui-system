@@ -5,7 +5,6 @@ import { Fragment } from "react";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
-
 interface ButtonProps {
   type?: "button" | "submit";
   disabled?: boolean;
@@ -50,4 +49,3 @@ export const Button = ({
     </button>
   );
 };
-

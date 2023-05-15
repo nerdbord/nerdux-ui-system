@@ -6,15 +6,19 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-
 interface CardProps {
   fullWidth?: boolean;
 }
 
-export const CardImage = () => {
+interface CardImageProps {
+  url: string;
+  alt?: string;
+}
+
+export const CardImage = (props: PropsWithChildren<CardImageProps>) => {
   return (
     <div className={styles.imageWrapper}>
-      <img src={imageUrl} alt="placeholder" />
+      <img src={props.url} alt={props.alt} />
     </div>
   );
 };
@@ -27,11 +31,10 @@ export const Card = ({
   fullWidth = false,
   ...props
 }: PropsWithChildren<CardProps>) => {
-  
   const cardDynamicClasses = cx({
     cardWrapper: true,
     fullWidth: fullWidth,
-  })
+  });
 
   return <div className={cardDynamicClasses}>{props.children}</div>;
 };
