@@ -39,62 +39,52 @@ export const Pagination: React.FC<PaginationProps> = ({
   maxPages,
   onChange,
 }) => {
-  const [curPage, setCurPage] = useState<number>(currentPage);
-  
-  
+
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= maxPages) {
       onChange(page);
-      setCurPage(page);
     }
   };
-  
+
   const renderPageNumbers = () => {
     const pageNumbers = [];
-    
+
     for (let i = 1; i <= maxPages; i++) {
-      if (
-        i === 1 ||
-        i === maxPages ||
-        (i >= curPage - 1 && i <= curPage + 1)
-      ) {
+      if (i === 1 || i === maxPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
         pageNumbers.push(
           <div
-            className={`${styles.btn} ${
-              curPage === i && styles.active
-            }`}
+            className={`${styles.btn} ${currentPage === i && styles.active}`}
             onClick={() => handlePageChange(i)}
           >
             <p>{i}</p>
-            
           </div>
         );
-      } else if (i === curPage - 2 || i === curPage + 2) {
+      } else if (i === currentPage - 2 || i === currentPage + 2) {
         pageNumbers.push(<div>...</div>);
       }
     }
-    
+
     return pageNumbers;
   };
-  
+
   const paginationClass = cx({
-    paginationWrapper: true
-  })
-  
+    paginationWrapper: true,
+  });
+
   return (
     <nav className={paginationClass}>
       <PaginationItem
-        disabled={curPage === 1}
+        disabled={currentPage === 1}
         onClick={() => {
-          handlePageChange(curPage - 1);
+          handlePageChange(currentPage - 1);
         }}
       >
         <ArrowLeft />
       </PaginationItem>
       {renderPageNumbers()}
       <PaginationItem
-        disabled={curPage === maxPages}
-        onClick={() => handlePageChange(curPage + 1)}
+        disabled={currentPage === maxPages}
+        onClick={() => handlePageChange(currentPage + 1)}
       >
         <ArrowRight />
       </PaginationItem>
