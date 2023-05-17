@@ -39,7 +39,6 @@ export const Pagination: React.FC<PaginationProps> = ({
   maxPages,
   onChange,
 }) => {
-
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= maxPages) {
       onChange(page);
@@ -50,7 +49,11 @@ export const Pagination: React.FC<PaginationProps> = ({
     const pageNumbers = [];
 
     for (let i = 1; i <= maxPages; i++) {
-      if (i === 1 || i === maxPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+      if (
+        i === 1 ||
+        i === maxPages ||
+        (i >= currentPage - 1 && i <= currentPage + 1)
+      ) {
         pageNumbers.push(
           <div
             className={`${styles.btn} ${currentPage === i && styles.active}`}
