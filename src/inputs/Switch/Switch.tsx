@@ -1,5 +1,5 @@
 import * as React from "react";
-import {PropsWithChildren, useEffect, useState} from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import classNames from "classnames/bind";
 
 import styles from "./Switch.module.css";
@@ -20,7 +20,7 @@ export const Switch = ({
   onChange,
 }: PropsWithChildren<SwitchProps>) => {
   const [isChecked, setChecked] = useState(checked);
-  
+
   useEffect(() => {
     setChecked(checked);
   }, [checked]);
