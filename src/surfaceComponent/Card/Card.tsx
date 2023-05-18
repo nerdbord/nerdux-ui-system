@@ -1,6 +1,5 @@
 import { PropsWithChildren } from "react";
 import * as React from "react";
-import imageUrl from "../../assets/card/card.png";
 import * as styles from "./Card.module.css";
 import classNames from "classnames/bind";
 
@@ -15,10 +14,13 @@ interface CardImageProps {
   alt?: string;
 }
 
-export const CardImage = (props: PropsWithChildren<CardImageProps>) => {
+export const CardImage = ({
+  url,
+  alt,
+}: CardImageProps & PropsWithChildren<object>) => {
   return (
     <div className={styles.imageWrapper}>
-      <img src={props.url} alt={props.alt} />
+      <img src={url} alt={alt} />
     </div>
   );
 };
@@ -27,10 +29,7 @@ export const CardContent = (props: PropsWithChildren<object>) => {
   return <div className={styles.cardContent}>{props.children}</div>;
 };
 
-export const Card = ({
-  fullWidth = false,
-  ...props
-}: PropsWithChildren<CardProps>) => {
+export const Card = ({ fullWidth, ...props }: PropsWithChildren<CardProps>) => {
   const cardDynamicClasses = cx({
     cardWrapper: true,
     fullWidth: fullWidth,
