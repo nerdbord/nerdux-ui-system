@@ -3,12 +3,19 @@ import * as React from "react";
 import { Button } from "../../inputs";
 import imageUrl from "../../assets/card/card.png";
 import PropTypes, { InferProps } from "prop-types";
+import { Meta } from "@storybook/react";
+
+export default {
+  component: Card,
+} as Meta;
 
 interface CardStoryProps {
   fullWidth?: boolean;
 }
 
-const Default: React.FC<InferProps<CardStoryProps>> = ({ fullWidth }) => {
+export const Default: React.FC<InferProps<CardStoryProps>> = ({
+  fullWidth,
+}) => {
   const handlePrimaryButtonClick = () => {
     console.log("Primary button clicked");
   };
@@ -52,5 +59,3 @@ const Default: React.FC<InferProps<CardStoryProps>> = ({ fullWidth }) => {
 Default.propTypes = {
   fullWidth: PropTypes.bool,
 };
-
-export { Default };

@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import * as React from "react";
-import * as styles from "./Card.module.css";
+import styles from "./Card.module.css";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
