@@ -1,17 +1,17 @@
-.switchLabel {
+.label {
   position: relative;
   display: inline-block;
   width: 52px;
   height: 32px;
 }
 
-.switchLabel input {
+.label input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.switchSlider {
+.slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -25,7 +25,7 @@
   border: 2px solid #000000;
 }
 
-.switchSlider:before {
+.slider:before {
   position: absolute;
   content: "";
   height: 16px;
@@ -38,11 +38,11 @@
   border-radius: 16px;
 }
 
-input:checked + .switchSlider {
+input:checked + .slider {
   background: #b23386;
 }
 
-input:checked + .switchSlider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(20px);
@@ -53,18 +53,18 @@ input:checked + .switchSlider:before {
   background: #fff;
 }
 
-.switchSliderDisabled {
+.sliderDisabled {
   border-color: #aeaaae;
 }
 
-.switchSliderDisabled:before {
+.sliderDisabled:before {
   background: #aeaaae;
 }
 
-input:checked + .switchSliderDisabled {
+input:checked + .sliderDisabled {
   background: rgba(178, 51, 134, 0.28);
 }
 
-input:checked + .switchSliderDisabled:before {
+input:checked + .sliderDisabled:before {
   background: #fffbfe;
 }

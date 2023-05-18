@@ -1,9 +1,9 @@
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import styles from "./List.module.css";
 import { List, ListItem } from "./List";
 import React, { Fragment } from "react";
 import { Switch } from "../../inputs";
-import Checkbox from "../../inputs/Checkbox/Checkbox";
+import { Checkbox } from "../../inputs";
 
 interface ListItemArgs {
   header: string;
@@ -15,7 +15,7 @@ export default {
   component: List,
 } as Meta;
 
-export const Default: Story<ListItemArgs> = (args) => (
+export const Default: StoryFn<ListItemArgs> = (args) => (
   <List>
     <ListItem>
       <div>
@@ -31,11 +31,11 @@ Default.args = {
   supportText: "Supporting line text lorem ipsum dolor sit amet, consectetur",
 };
 
-export const ListItemSwitch: Story<ListItemArgs> = (args) => (
+export const ListItemSwitch: StoryFn<ListItemArgs> = (args) => (
   <>
     <List>
       <ListItem>
-        <div className={styles.switchContainer}>
+        <div className={styles.switchWrapper}>
           <Switch
             id={""}
             onChange={() => {
@@ -57,7 +57,7 @@ ListItemSwitch.args = {
   supportText: "Supporting line text lorem ipsum dolor sit amet, consectetur",
 };
 
-export const ListItemCheckbox: Story<ListItemArgs> = (args) => (
+export const ListItemCheckbox: StoryFn<ListItemArgs> = (args) => (
   <>
     <List>
       <ListItem>
@@ -65,7 +65,7 @@ export const ListItemCheckbox: Story<ListItemArgs> = (args) => (
           <h3 className={styles.header}>{args.header}</h3>
           <p className={styles.supportText}>{args.supportText}</p>
         </div>
-        <div className={styles.checkboxContainer}>
+        <div className={styles.checkboxWrapper}>
           <Checkbox
             id={""}
             name={""}
@@ -73,6 +73,7 @@ export const ListItemCheckbox: Story<ListItemArgs> = (args) => (
             label={"Checkboc label"}
             checked={true}
             disabled={false}
+            onChange={() => console.log("Hello")}
           />
         </div>
       </ListItem>

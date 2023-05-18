@@ -1,8 +1,11 @@
 node_modules
 /build
 /coverage
-#/dist
+/storybook-static
+/dist
 /*.log
 .idea
+.vercel
 .vsc
 .vercel
+.parcel-cache
