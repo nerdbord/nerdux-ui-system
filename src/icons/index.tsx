@@ -7,4 +7,13 @@ import { ArrowLeft } from "./ArrowLeft";
 import { ArrowRight } from "./ArrowRight";
 import { Checked } from "./Checked";
 
-export { Plus, Spinner, Error, Cancel, MagGlass, ArrowRight, ArrowLeft, Checked };
+export {
+  Plus,
+  Spinner,
+  Error,
+  Cancel,
+  MagGlass,
+  ArrowRight,
+  ArrowLeft,
+  Checked,
+};
