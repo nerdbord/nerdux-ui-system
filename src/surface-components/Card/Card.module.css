@@ -1,7 +1,4 @@
 /* Card.module.css */
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -30,18 +27,18 @@ img {
 }
 
 .fullWidth {
-  width: 370px;
+  width: 100%;
 }
 
 .fullWidth img {
-  width: 370px;
-  height: 200px;
+  width: 100%;
+  height: auto;
 }
 
 .cardContent {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin: 16px;
   gap: 10px;
 }
@@ -55,38 +52,20 @@ img {
 
 .cardContent p {
   position: relative;
-  max-height: 70px;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  overflow: hidden;
   margin-bottom: 16px;
 }
 
-.cardContent p:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 45px;
-  width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), #fff);
+.cardContent div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.fullWidthCardContent p {
-  max-height: 30px;
-}
-
-.fullWidthCardContent p:after {
-  bottom: -10px;
-  height: 45px;
-}
-
-.buttonWrapperFullWidth {
+.fullWidth > .cardContent div {
+  display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
-
-.buttonWrapperFullWidth button {
-  width: 164px;
+  flex-wrap: wrap;
 }
