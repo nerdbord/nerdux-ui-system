@@ -9,9 +9,19 @@ interface CardStoryProps {
 }
 
 const Default: React.FC<InferProps<CardStoryProps>> = ({ fullWidth }) => {
+  const handlePrimaryButtonClick = () => {
+    console.log("Primary button clicked");
+  };
+
+  const handleSecondaryButtonClick = () => {
+    console.log("Secondary button clicked");
+  };
+
+  const labels = ["Click!", "DO NOT CLICK ME!"];
+
   return (
     <Card fullWidth={fullWidth}>
-      <CardImage url={imageUrl} />
+      <CardImage url={imageUrl} alt={"default alt"} />
       <CardContent>
         <h3>Card Name</h3>
         <p>
@@ -28,21 +38,11 @@ const Default: React.FC<InferProps<CardStoryProps>> = ({ fullWidth }) => {
           quae sint, sit vel veniam! Dignissimos doloribus laudantium provident
           veritatis.
         </p>
-        <Button
-          onClick={() => {
-            console.log("Primary button clicked");
-          }}
-          variant={"primary"}
-        >
-          Click!
+        <Button onClick={handlePrimaryButtonClick} variant={"primary"}>
+          {labels[0]}
         </Button>
-        <Button
-          onClick={() => {
-            console.log("Secondary button clicked");
-          }}
-          variant={"secondary"}
-        >
-          DO NOT CLICK ME!
+        <Button onClick={handleSecondaryButtonClick} variant={"secondary"}>
+          {labels[1]}
         </Button>
       </CardContent>
     </Card>
