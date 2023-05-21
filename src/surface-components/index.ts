@@ -1,2 +1,2 @@
 export { Accordion } from "./Accordion/Accordion";
-export { Card } from "./Card/Card";
+export { Card, CardImage, CardContent }  from "./Card/Card";

@@ -1,3 +1,3 @@
 export { Avatar } from "./Avatar/Avatar";
-export { List } from "./List/List";
-export { Table } from "./Table/Table";
+export { List, ListItem } from "./List/List";
+export { Table, TableHead, TableRow, TableCell, TableBody } from "./Table/Table";
