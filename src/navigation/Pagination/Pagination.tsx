@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import classNames from "classnames/bind";
 import { ArrowLeft, ArrowRight } from "../../icons";
 
@@ -12,7 +12,7 @@ interface PaginationItemProps {
   children: React.ReactNode;
 }
 
-const PaginationItem: React.FC<PaginationItemProps> = ({
+export const PaginationItem: React.FC<PaginationItemProps> = ({
   disabled = false,
   onClick,
   children,
