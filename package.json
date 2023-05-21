@@ -1,6 +1,6 @@
 {
   "name": "nerdux-ui-system",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Nerdbord",
   "license": "MIT",
   "source": "src/index.ts",
