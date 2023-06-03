@@ -9,4 +9,4 @@ export const Intro: StoryFn = () => (
 
 export default {
   component: Intro,
-} as any;
+} as unknown;

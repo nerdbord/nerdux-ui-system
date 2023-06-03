@@ -23,7 +23,5 @@
   padding: 15px 10px;
   font-size: 14px;
   line-height: 20px;
-  width: 150px;
-  display: flex;
-  justify-content: center;
+  min-width: 100px;
 }
